@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+    <!--TEXT STYLES-->
+
+    <style name="TextHeading">
+        <item name="android:textSize">@dimen/text_headline</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/saddlebrown</item>
+    </style>
+
+    <style name="TextTitle">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/saddlebrown</item>
+    </style>
+
+    <style name="TextSubtitle">
+        <item name="android:textSize">@dimen/text_subtitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/copper</item>
+    </style>
+
+    <style name="TextBody">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/charcoal</item>
+    </style>
+
+    <style name="TextCaption">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/charcoal_muted</item>
+    </style>
+
+    <!--BUTTON STYLES-->
+
+    <style name="ButtonPrimary" parent="Widget.Material3.Button">
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="backgroundTint">@color/saddlebrown</item>
+        <item name="android:textColor">@color/off_white</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="Widget.Material3.Button">
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="backgroundTint">@color/copper</item>
+        <item name="android:textColor">@color/off_white</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+    </style>
+
+    <style name="ButtonText" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/saddlebrown</item>
+    </style>
+
+</resources>
