@@ -67,6 +67,7 @@ class LoginFragment : Fragment() {
         if (success) {
             val name = userViewModel.currentUser.value?.fullName ?: "user"
             Toast.makeText(requireContext(), "Welcome, $name!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_login_to_home)
         } else {
             val errorMessage = userViewModel.authError.value ?: "Login failed."
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()

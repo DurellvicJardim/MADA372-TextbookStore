@@ -97,8 +97,7 @@ class RegisterFragment : Fragment() {
         val success = userViewModel.register(fullName, email, password, institution, course, status)
         if (success) {
             Toast.makeText(requireContext(), "Welcome, $fullName!", Toast.LENGTH_SHORT).show()
-            // Phase 5 will navigate to Home. For now, back to Login.
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_register_to_home)
         } else {
             val errorMessage = userViewModel.authError.value ?: "Registration failed."
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()

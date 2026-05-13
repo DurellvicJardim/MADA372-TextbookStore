@@ -66,4 +66,10 @@
     <string name="error_passwords_dont_match">Passwords don\'t match</string>
     <string name="error_email_not_found">No account found with that email</string>
     <string name="success_password_reset">Password reset. Please log in.</string>
+
+    <!--Bottom navigation labels-->
+    <string name="nav_home">Home</string>
+    <string name="nav_sell">Sell</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_profile">Profile</string>
 </resources>
