@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stadio.textbookstore.data.Book
 import com.stadio.textbookstore.data.BookStoreRepository
+import androidx.lifecycle.map
+import com.stadio.textbookstore.data.User
 
 //Manages list of books on home screen, search query, and currently selected book.
 class BookListViewModel : ViewModel() {
@@ -17,6 +19,11 @@ class BookListViewModel : ViewModel() {
 
     private val _selectedBook = MutableLiveData<Book?>()
     val selectedBook: LiveData<Book?> = _selectedBook
+
+    //whenever selectedBook changes look up seller
+    val selectedSeller: LiveData<User?> = _selectedBook.map { book ->
+        book?.let { BookStoreRepository.getUserById(it.sellerId) }
+    }
 
     fun search(query: String) {
         _searchQuery.value = query
