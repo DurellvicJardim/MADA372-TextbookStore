@@ -55,6 +55,14 @@ class UserViewModel : ViewModel() {
         _currentUser.value = updated
     }
 
+    /** Returns true if password was reset, false if no account matches the email. */
+    fun resetPassword(email: String, newPassword: String): Boolean {
+        val user = BookStoreRepository.getUserByEmail(email) ?: return false
+        val updated = user.copy(password = newPassword)
+        BookStoreRepository.updateUser(updated)
+        return true
+    }
+
     fun clearError() {
         _authError.value = null
     }

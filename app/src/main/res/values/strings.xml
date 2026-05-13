@@ -1,3 +1,69 @@
 <resources>
     <string name="app_name">Textbook Store</string>
+    <!--login screen-->
+    <string name="login_welcome">Welcome Back</string>
+    <string name="login_subtitle">Sign in to continue</string>
+    <string name="login_email_hint">Email address</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Log In</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_no_account">Don\'t have an account?</string>
+    <string name="login_register_link">Register</string>
+
+    <!--validation -->
+    <string name="error_email_required">Email is required</string>
+    <string name="error_password_required">Password is required</string>
+
+    <!--Register screen-->
+    <string name="register_heading">Create Account</string>
+    <string name="register_subtitle">Join the textbook marketplace</string>
+    <string name="register_full_name_hint">Full Name</string>
+    <string name="register_institution_hint">Institution</string>
+    <string name="register_course_hint">Course</string>
+    <string name="register_student_status_hint">Student Status</string>
+    <string name="register_button">Register</string>
+    <string name="register_have_account">Already have an account?</string>
+    <string name="register_login_link">Log in</string>
+
+    <!--More validation -->
+    <string name="error_name_required">Full name is required</string>
+    <string name="error_email_invalid">Enter a valid email address</string>
+    <string name="error_password_short">Password must be at least 6 characters</string>
+    <string name="error_institution_required">Please select your institution</string>
+    <string name="error_course_required">Course is required</string>
+    <string name="error_status_required">Please select your student status</string>
+
+    <!--Dropdown options-->
+    <string-array name="institutions">
+        <item>University of Pretoria</item>
+        <item>University of the Witwatersrand</item>
+        <item>Stellenbosch University</item>
+        <item>University of Cape Town</item>
+        <item>University of Johannesburg</item>
+        <item>University of the Free State</item>
+        <item>Rhodes University</item>
+        <item>Nelson Mandela University</item>
+        <item>University of KwaZulu-Natal</item>
+        <item>North-West University</item>
+    </string-array>
+
+    <string-array name="student_statuses">
+        <item>Current Student</item>
+        <item>Postgraduate Student</item>
+        <item>Alumni</item>
+        <item>Faculty/Staff</item>
+    </string-array>
+
+    <!--Forgot Password screen-->
+    <string name="forgot_heading">Reset Password</string>
+    <string name="forgot_subtitle">Enter your email and a new password</string>
+    <string name="forgot_new_password_hint">New Password</string>
+    <string name="forgot_confirm_password_hint">Confirm New Password</string>
+    <string name="forgot_button">Reset Password</string>
+    <string name="forgot_back_to_login">Back to Login</string>
+
+    <!--Additional validation-->
+    <string name="error_passwords_dont_match">Passwords don\'t match</string>
+    <string name="error_email_not_found">No account found with that email</string>
+    <string name="success_password_reset">Password reset. Please log in.</string>
 </resources>

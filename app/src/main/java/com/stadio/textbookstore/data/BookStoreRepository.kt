@@ -1,7 +1,5 @@
 package com.stadio.textbookstore.data
 
-//In-memory data store for the Textbook Store app.
-
 object BookStoreRepository {
 
     //STATE

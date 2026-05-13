@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_lg"
+        android:paddingVertical="@dimen/spacing_xl">
+
+        <!--Logo placeholder-->
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:background="@color/saddlebrown" />
+
+        <!--Heading-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/register_heading"
+            style="@style/TextHeading"
+            android:layout_marginBottom="@dimen/spacing_sm" />
+
+        <!--Subtitle-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/register_subtitle"
+            style="@style/TextBody"
+            android:layout_marginBottom="@dimen/spacing_xl" />
+
+        <!--Full Name-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_full_name_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_md">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Email-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_email_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_md">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Password-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_password_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_md">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Institution dropdown-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/institutionInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_institution_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_md">
+            <AutoCompleteTextView
+                android:id="@+id/institutionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Course-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/courseInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_course_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_md">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/courseInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textCapWords"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Student Status dropdown-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/statusInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_student_status_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown"
+            android:layout_marginBottom="@dimen/spacing_lg">
+            <AutoCompleteTextView
+                android:id="@+id/statusInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Register button-->
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_button"
+            style="@style/ButtonPrimary"
+            android:layout_marginBottom="@dimen/spacing_lg" />
+
+        <!--Login link row-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_have_account"
+                style="@style/TextBody" />
+
+            <TextView
+                android:id="@+id/loginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_login_link"
+                android:textColor="@color/saddlebrown"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_body"
+                android:padding="@dimen/spacing_sm" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
