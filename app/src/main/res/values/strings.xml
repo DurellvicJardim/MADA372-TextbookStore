@@ -88,4 +88,58 @@
     <string name="details_author_format">Author: %1$s</string>
     <string name="details_isbn_format">ISBN: %1$s</string>
     <string name="details_seller_format">%1$s · %2$s · %3$s</string>
+
+    <!--Sell screen-->
+    <string name="sell_screen_title">List a Book</string>
+    <string name="sell_subtitle">Help another student get this textbook</string>
+    <string name="sell_title_hint">Book Title</string>
+    <string name="sell_author_hint">Author</string>
+    <string name="sell_isbn_hint">ISBN</string>
+    <string name="sell_price_hint">Price (R)</string>
+    <string name="sell_condition_hint">Condition</string>
+    <string name="sell_description_hint">Description (optional)</string>
+    <string name="sell_button">List Book</string>
+    <string name="sell_success">Book listed successfully!</string>
+    <string name="sell_not_logged_in">You must be logged in to list a book.</string>
+
+    <!--Even more Validation-->
+    <string name="error_title_required">Book title is required</string>
+    <string name="error_author_required">Author is required</string>
+    <string name="error_isbn_required">ISBN is required</string>
+    <string name="error_price_invalid">Enter a valid price</string>
+    <string name="error_condition_required">Please select a condition</string>
+
+    <!--Condition-->
+    <string-array name="conditions">
+        <item>Excellent</item>
+        <item>Good</item>
+        <item>Fair</item>
+        <item>Poor</item>
+    </string-array>
+
+    <!--Messages screen-->
+    <string name="messages_screen_title">Messages</string>
+    <string name="messages_empty">No messages yet.\nStart a conversation by tapping \'Ask Seller\' on a book.</string>
+
+    <!--Direct message-->
+    <string name="thread_input_hint">Type a message…</string>
+    <string name="thread_send">Send</string>
+    <string name="thread_empty">No messages yet. Send the first one!</string>
+    <string name="thread_cant_message_self">You can\'t message yourself — you\'re the seller of this book.</string>
+
+    <!--Profile screen-->
+    <string name="profile_screen_title">Profile</string>
+    <string name="profile_account_info">Account Information</string>
+    <string name="profile_institution_label">Institution</string>
+    <string name="profile_course_label">Course</string>
+    <string name="profile_status_label">Student Status</string>
+    <string name="profile_edit_button">Edit Profile</string>
+    <string name="profile_logout_button">Logout</string>
+    <string name="profile_logout_confirmed">You have been logged out.</string>
+
+    <!--Edit Profile screen-->
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="edit_email_cannot_change">Email cannot be changed</string>
+    <string name="edit_save_button">Save Changes</string>
+    <string name="edit_save_success">Profile updated</string>
 </resources>

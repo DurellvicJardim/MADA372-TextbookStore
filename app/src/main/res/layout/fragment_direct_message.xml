@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white">
+
+    <!--Top app bar-->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/saddlebrown"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/off_white"
+        app:titleTextColor="@color/off_white"
+        tools:title="Thabo Sithole" />
+
+    <!--Empty state + messages-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/thread_empty"
+            style="@style/TextBody"
+            android:visibility="gone"
+            android:paddingHorizontal="@dimen/spacing_xl" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messagesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingVertical="@dimen/spacing_sm" />
+
+    </FrameLayout>
+
+    <!--Input row at bottom-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_sm"
+        android:gravity="center_vertical"
+        android:background="@color/cream">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/thread_input_hint"
+            app:boxStrokeColor="@color/saddlebrown"
+            app:hintTextColor="@color/saddlebrown">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/messageInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="4"
+                android:textColor="@color/charcoal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_send"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/thread_send"
+            app:tint="@color/saddlebrown"
+            android:layout_marginStart="@dimen/spacing_sm" />
+
+    </LinearLayout>
+
+</LinearLayout>

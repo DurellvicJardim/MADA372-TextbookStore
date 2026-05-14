@@ -13,6 +13,8 @@ import com.stadio.textbookstore.data.Book
 import com.stadio.textbookstore.data.User
 import com.stadio.textbookstore.databinding.FragmentBookDetailsBinding
 import com.stadio.textbookstore.viewmodel.BookListViewModel
+import com.stadio.textbookstore.viewmodel.MessagesViewModel
+import com.stadio.textbookstore.viewmodel.UserViewModel
 
 class BookDetailsFragment : Fragment() {
 
@@ -20,6 +22,8 @@ class BookDetailsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val bookViewModel: BookListViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
+    private val messagesViewModel: MessagesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,11 +42,21 @@ class BookDetailsFragment : Fragment() {
         }
 
         binding.askSellerButton.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                "Ask Seller — coming in Phase 7",
-                Toast.LENGTH_SHORT
-            ).show()
+            val currentUser = userViewModel.currentUser.value
+            val seller = bookViewModel.selectedSeller.value
+            if (currentUser == null || seller == null) return@setOnClickListener
+
+            if (currentUser.id == seller.id) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.thread_cant_message_self),
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+
+            messagesViewModel.openThread(currentUser.id, seller.id)
+            findNavController().navigate(R.id.action_details_to_thread)
         }
 
         //see selected book and populate screen

@@ -61,18 +61,47 @@
         android:id="@+id/messagesFragment"
         android:name="com.stadio.textbookstore.ui.messages.MessagesFragment"
         android:label="Messages"
-        tools:layout="@layout/fragment_messages" />
+        tools:layout="@layout/fragment_messages">
+        <action
+            android:id="@+id/action_messages_to_thread"
+            app:destination="@id/directMessageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.stadio.textbookstore.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profile_to_edit"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/bookDetailsFragment"
         android:name="com.stadio.textbookstore.ui.home.BookDetailsFragment"
         android:label="Book Details"
-        tools:layout="@layout/fragment_book_details" />
+        tools:layout="@layout/fragment_book_details">
+        <action
+            android:id="@+id/action_details_to_thread"
+            app:destination="@id/directMessageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/directMessageFragment"
+        android:name="com.stadio.textbookstore.ui.messages.DirectMessageFragment"
+        android:label="Direct Message"
+        tools:layout="@layout/fragment_direct_message" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.stadio.textbookstore.ui.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 </navigation>

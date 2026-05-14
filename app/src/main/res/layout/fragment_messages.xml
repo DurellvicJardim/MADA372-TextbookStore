@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/off_white">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--Top app bar-->
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Messages"
-        style="@style/TextHeading" />
+        android:background="@color/saddlebrown"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingVertical="@dimen/spacing_md">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:text="@string/messages_screen_title"
+            android:textColor="@color/off_white"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_title" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!--Empty state-->
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/messages_empty"
+            style="@style/TextBody"
+            android:visibility="gone"
+            android:paddingHorizontal="@dimen/spacing_xl" />
+
+        <!--Conversation list-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/conversationList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false" />
+
+    </FrameLayout>
+
+</LinearLayout>

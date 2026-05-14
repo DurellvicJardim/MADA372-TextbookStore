@@ -6,25 +6,35 @@ import androidx.lifecycle.ViewModel
 import com.stadio.textbookstore.data.BookStoreRepository
 import com.stadio.textbookstore.data.Message
 
-//Manages conversation list and active conversation thread
 class MessagesViewModel : ViewModel() {
 
-    private val _conversations = MutableLiveData<List<Message>>()
-    val conversations: LiveData<List<Message>> = _conversations
+    private val _conversations = MutableLiveData<List<ConversationItem>>()
+    val conversations: LiveData<List<ConversationItem>> = _conversations
 
     private val _activeThread = MutableLiveData<List<Message>>()
     val activeThread: LiveData<List<Message>> = _activeThread
+    private val _activeOtherUser = MutableLiveData<com.stadio.textbookstore.data.User?>()
+    val activeOtherUser: LiveData<com.stadio.textbookstore.data.User?> = _activeOtherUser
 
     private var activeOtherUserId: String? = null
+    private var lastLoadedUserId: String? = null
 
-    //load latest message
+    //load conversation list for user
     fun loadConversations(userId: String) {
-        _conversations.value = BookStoreRepository.getConversationsFor(userId)
+        lastLoadedUserId = userId
+        val messages = BookStoreRepository.getConversationsFor(userId)
+        val items = messages.mapNotNull { msg ->
+            val otherId = if (msg.senderId == userId) msg.receiverId else msg.senderId
+            val otherUser = BookStoreRepository.getUserById(otherId) ?: return@mapNotNull null
+            ConversationItem(otherUser, msg)
+        }
+        _conversations.value = items
     }
 
-    //open message thread between current user and another user
+    //Open message thread between current and other user
     fun openThread(currentUserId: String, otherUserId: String) {
         activeOtherUserId = otherUserId
+        _activeOtherUser.value = BookStoreRepository.getUserById(otherUserId)
         _activeThread.value = BookStoreRepository.getMessagesBetween(currentUserId, otherUserId)
     }
 
@@ -33,11 +43,13 @@ class MessagesViewModel : ViewModel() {
         val receiverId = activeOtherUserId ?: return
         BookStoreRepository.addMessage(senderId, receiverId, content, bookId)
         _activeThread.value = BookStoreRepository.getMessagesBetween(senderId, receiverId)
-        _conversations.value = BookStoreRepository.getConversationsFor(senderId)
+        // Also refresh the conversations list so it updates when the user backs out
+        lastLoadedUserId?.let { loadConversations(it) }
     }
 
     fun closeThread() {
         activeOtherUserId = null
+        _activeOtherUser.value = null
         _activeThread.value = emptyList()
     }
 }

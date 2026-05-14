@@ -7,22 +7,15 @@
     android:background="@color/off_white">
 
     <!--Top app bar-->
-    <FrameLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/saddlebrown"
-        android:paddingHorizontal="@dimen/spacing_md"
-        android:paddingVertical="@dimen/spacing_md">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|start"
-            android:text="@string/sell_screen_title"
-            android:textColor="@color/off_white"
-            android:textStyle="bold"
-            android:textSize="@dimen/text_title" />
-    </FrameLayout>
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/off_white"
+        app:title="@string/edit_profile_title"
+        app:titleTextColor="@color/off_white" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,127 +30,109 @@
             android:paddingHorizontal="@dimen/spacing_lg"
             android:paddingVertical="@dimen/spacing_lg">
 
-            <!--Subtitle-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/TextBody"
-                android:text="@string/sell_subtitle"
-                android:layout_marginBottom="@dimen/spacing_lg" />
+            <!--Avatar-->
+            <View
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_xl"
+                android:background="@drawable/avatar_placeholder" />
 
-            <!--Book Title-->
+            <!--Name-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/titleInputLayout"
+                android:id="@+id/nameInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sell_title_hint"
+                android:hint="@string/register_full_name_hint"
                 app:boxStrokeColor="@color/saddlebrown"
                 app:hintTextColor="@color/saddlebrown"
                 android:layout_marginBottom="@dimen/spacing_md">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/titleInput"
+                    android:id="@+id/nameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text|textCapWords"
+                    android:inputType="textPersonName|textCapWords"
                     android:textColor="@color/charcoal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Author-->
+            <!--Email-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/authorInputLayout"
+                android:id="@+id/emailInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sell_author_hint"
-                app:boxStrokeColor="@color/saddlebrown"
-                app:hintTextColor="@color/saddlebrown"
+                android:hint="@string/login_email_hint"
+                android:enabled="false"
+                app:helperText="@string/edit_email_cannot_change"
                 android:layout_marginBottom="@dimen/spacing_md">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/authorInput"
+                    android:id="@+id/emailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text|textCapWords"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/charcoal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--ISBN-->
+            <!--Institution dropdown-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/isbnInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/sell_isbn_hint"
-                app:boxStrokeColor="@color/saddlebrown"
-                app:hintTextColor="@color/saddlebrown"
-                android:layout_marginBottom="@dimen/spacing_md">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/isbnInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textColor="@color/charcoal" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--Price-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/priceInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/sell_price_hint"
-                app:boxStrokeColor="@color/saddlebrown"
-                app:hintTextColor="@color/saddlebrown"
-                android:layout_marginBottom="@dimen/spacing_md">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/priceInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/charcoal" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--Condition dropdown-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/conditionInputLayout"
+                android:id="@+id/institutionInputLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sell_condition_hint"
+                android:hint="@string/register_institution_hint"
                 app:boxStrokeColor="@color/saddlebrown"
                 app:hintTextColor="@color/saddlebrown"
                 android:layout_marginBottom="@dimen/spacing_md">
                 <AutoCompleteTextView
-                    android:id="@+id/conditionInput"
+                    android:id="@+id/institutionInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
                     android:textColor="@color/charcoal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Description-->
+            <!--Course-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionInputLayout"
+                android:id="@+id/courseInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sell_description_hint"
+                android:hint="@string/register_course_hint"
                 app:boxStrokeColor="@color/saddlebrown"
                 app:hintTextColor="@color/saddlebrown"
-                android:layout_marginBottom="@dimen/spacing_lg">
+                android:layout_marginBottom="@dimen/spacing_md">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/descriptionInput"
+                    android:id="@+id/courseInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine|textCapSentences"
-                    android:minLines="3"
-                    android:maxLines="6"
-                    android:gravity="top|start"
+                    android:inputType="text|textCapWords"
                     android:textColor="@color/charcoal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--List Book button-->
+            <!--Student Status dropdown-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/statusInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_student_status_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_lg">
+                <AutoCompleteTextView
+                    android:id="@+id/statusInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Save button-->
             <Button
-                android:id="@+id/listBookButton"
+                android:id="@+id/saveButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/ButtonPrimary"
-                android:text="@string/sell_button" />
+                android:text="@string/edit_save_button" />
 
         </LinearLayout>
 
