@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing_md"
+    android:layout_marginVertical="@dimen/spacing_sm"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/off_white"
+    app:cardCornerRadius="@dimen/radius_md"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/tan"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_md">
+
+        <ImageView
+            android:id="@+id/bookCover"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
+            android:background="@color/tan"
+            android:scaleType="centerCrop"
+            android:importantForAccessibility="no" />
+
+        <!--Text content-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/spacing_md"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextTitle"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Introduction to Accounting" />
+
+            <TextView
+                android:id="@+id/authorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextBody"
+                android:layout_marginTop="@dimen/spacing_sm"
+                tools:text="Service &amp; Brown" />
+
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextSubtitle"
+                android:layout_marginTop="@dimen/spacing_sm"
+                tools:text="R450.00" />
+
+            <TextView
+                android:id="@+id/conditionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextCaption"
+                android:layout_marginTop="@dimen/spacing_sm"
+                tools:text="Good condition" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

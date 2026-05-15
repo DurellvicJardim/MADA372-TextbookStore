@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white">
+
+    <!--Top app bar-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/saddlebrown"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingVertical="@dimen/spacing_md">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:text="@string/sell_screen_title"
+            android:textColor="@color/off_white"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_title" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_lg"
+            android:paddingVertical="@dimen/spacing_lg">
+
+            <!--Cover-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_lg">
+
+                <ImageView
+                    android:id="@+id/coverPreview"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:background="@color/tan"
+                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/sell_cover_description" />
+
+                <TextView
+                    android:id="@+id/addCoverLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:padding="@dimen/spacing_sm"
+                    android:text="@string/sell_add_cover"
+                    android:textColor="@color/saddlebrown"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!--Subtitle-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextBody"
+                android:text="@string/sell_subtitle"
+                android:layout_marginBottom="@dimen/spacing_lg" />
+
+            <!--Book Title-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_title_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/titleInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapWords"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Author-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/authorInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_author_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/authorInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapWords"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--ISBN-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/isbnInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_isbn_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/isbnInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Price-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_price_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/priceInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Condition dropdown-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/conditionInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_condition_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <AutoCompleteTextView
+                    android:id="@+id/conditionInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Description-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sell_description_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_lg">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:minLines="3"
+                    android:maxLines="6"
+                    android:gravity="top|start"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--List Book button-->
+            <Button
+                android:id="@+id/listBookButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPrimary"
+                android:text="@string/sell_button" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

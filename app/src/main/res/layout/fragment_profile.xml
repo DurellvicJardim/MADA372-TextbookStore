@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white">
+
+    <!--Top app bar-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/saddlebrown"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingVertical="@dimen/spacing_md">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:text="@string/profile_screen_title"
+            android:textColor="@color/off_white"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_title" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <!--Profile header-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_lg">
+
+                <!--Profile picture-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profilePicture"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
+
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextHeading"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    tools:text="Wikus van der Merwe" />
+
+                <TextView
+                    android:id="@+id/emailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextBody"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    tools:text="wikus@up.ac.za" />
+
+            </LinearLayout>
+
+            <!--Divider-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/tan" />
+
+            <!--Account Info section-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextSubtitle"
+                android:text="@string/profile_account_info"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:layout_marginBottom="@dimen/spacing_md" />
+
+            <!--Institution-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextCaption"
+                    android:text="@string/profile_institution_label" />
+
+                <TextView
+                    android:id="@+id/institutionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextBody"
+                    android:layout_marginTop="2dp"
+                    tools:text="University of Pretoria" />
+            </LinearLayout>
+
+            <!--Course-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextCaption"
+                    android:text="@string/profile_course_label" />
+
+                <TextView
+                    android:id="@+id/courseValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextBody"
+                    android:layout_marginTop="2dp"
+                    tools:text="BCom Accounting" />
+            </LinearLayout>
+
+            <!--Status-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/spacing_lg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextCaption"
+                    android:text="@string/profile_status_label" />
+
+                <TextView
+                    android:id="@+id/statusValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextBody"
+                    android:layout_marginTop="2dp"
+                    tools:text="Current Student" />
+            </LinearLayout>
+
+            <!--Divider-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/tan"
+                android:layout_marginBottom="@dimen/spacing_lg" />
+
+            <!--Edit Profile-->
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPrimary"
+                android:text="@string/profile_edit_button"
+                android:layout_marginBottom="@dimen/spacing_md" />
+
+            <!--Logout-->
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:textColor="@color/soft_red"
+                android:text="@string/profile_logout_button" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

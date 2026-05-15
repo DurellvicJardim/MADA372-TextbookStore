@@ -1,5 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <color name="black">#FF000000</color>
+
+    <!--Primary colours-->
+    <color name="saddlebrown">#8B4513</color>
+    <color name="copper">#C67A3C</color>
+    <color name="tan">#D4A574</color>
+
+    <!--Backgrounds-->
+    <color name="cream">#F5E6D3</color>
+    <color name="off_white">#FFF8F0</color>
+
+    <!--Text-->
+    <color name="charcoal">#2D2D2D</color>
+    <color name="charcoal_muted">#992D2D2D</color>
+
+    <!--Status-->
+    <color name="soft_red">#C0392B</color>
+    <color name="forest_green">#27AE60</color>
+
+    <!--Helpers-->
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
 </resources>

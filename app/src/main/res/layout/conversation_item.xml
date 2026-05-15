@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/spacing_md"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!--Avatar placeholder-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/conversationAvatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/avatar_placeholder"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
+        android:importantForAccessibility="no" />
+
+    <!--Name + last message-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/spacing_md">
+
+        <TextView
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextBody"
+            android:textStyle="bold"
+            tools:text="Thabo Sithole" />
+
+        <TextView
+            android:id="@+id/lastMessageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextCaption"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="2dp"
+            tools:text="Yes it is. Are you on UP campus?" />
+
+    </LinearLayout>
+
+    <!--Timestamp-->
+    <TextView
+        android:id="@+id/timestampText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextCaption"
+        android:layout_marginStart="@dimen/spacing_sm"
+        tools:text="14:30" />
+
+</LinearLayout>

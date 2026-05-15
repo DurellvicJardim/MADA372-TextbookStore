@@ -1,7 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!--base theme-->
     <style name="Base.Theme.TextbookStore" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <!-- Primary-->
+        <item name="colorPrimary">@color/saddlebrown</item>
+        <item name="colorOnPrimary">@color/off_white</item>
+        <item name="colorPrimaryContainer">@color/copper</item>
+        <item name="colorOnPrimaryContainer">@color/off_white</item>
+
+        <!--Secondary-->
+        <item name="colorSecondary">@color/copper</item>
+        <item name="colorOnSecondary">@color/off_white</item>
+        <item name="colorSecondaryContainer">@color/tan</item>
+        <item name="colorOnSecondaryContainer">@color/charcoal</item>
+
+        <!--Surface-->
+        <item name="colorSurface">@color/off_white</item>
+        <item name="colorOnSurface">@color/charcoal</item>
+
+        <!--background-->
+        <item name="android:colorBackground">@color/off_white</item>
+
+        <!--Status bar at top of the screen-->
+        <item name="android:statusBarColor">@color/saddlebrown</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!--Errors-->
+        <item name="colorError">@color/soft_red</item>
+        <item name="colorOnError">@color/off_white</item>
+
+        <!--Fonts-->
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter</item>
+
     </style>
+
+    <style name="Theme.TextbookStore" parent="Base.Theme.TextbookStore" />
+
 </resources>

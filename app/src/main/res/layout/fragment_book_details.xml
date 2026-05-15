@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white">
+
+    <!--Top app bar with back arrow-->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/saddlebrown"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/off_white"
+        app:title="@string/details_title"
+        app:titleTextColor="@color/off_white" />
+
+    <!--Scrollable content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <!--Book cover-->
+            <ImageView
+                android:id="@+id/bookCoverLarge"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@color/tan"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:importantForAccessibility="no" />
+
+            <!--Title-->
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextHeading"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                tools:text="Introduction to Accounting" />
+
+            <!--Author-->
+            <TextView
+                android:id="@+id/authorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextBody"
+                tools:text="Author: Service &amp; Brown" />
+
+            <!--ISBN-->
+            <TextView
+                android:id="@+id/isbnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextCaption"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginBottom="@dimen/spacing_md"
+                tools:text="ISBN: 978-0-123456-12-1" />
+
+            <!--Price-->
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextHeading"
+                android:textColor="@color/copper"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                tools:text="R450.00" />
+
+            <!--Condition-->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/conditionChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:textColor="@color/charcoal"
+                android:clickable="false"
+                app:chipBackgroundColor="@color/tan"
+                tools:text="Good condition" />
+
+            <!--Description-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextSubtitle"
+                android:text="@string/details_description_label"
+                android:layout_marginBottom="@dimen/spacing_sm" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextBody"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                tools:text="Foundational accounting textbook covering financial statements and bookkeeping principles." />
+
+            <!--Divider-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/tan"
+                android:layout_marginBottom="@dimen/spacing_lg" />
+
+            <!--Seller Information-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextSubtitle"
+                android:text="@string/details_seller_label"
+                android:layout_marginBottom="@dimen/spacing_md" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/spacing_xl">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/sellerAvatar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/spacing_md">
+
+                    <TextView
+                        android:id="@+id/sellerNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextBody"
+                        android:textStyle="bold"
+                        tools:text="Wikus van der Merwe" />
+
+                    <TextView
+                        android:id="@+id/sellerDetailsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/TextCaption"
+                        android:layout_marginTop="2dp"
+                        tools:text="University of Pretoria · BCom Accounting · Current Student" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Ask seller-->
+            <Button
+                android:id="@+id/askSellerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPrimary"
+                android:text="@string/details_ask_seller" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

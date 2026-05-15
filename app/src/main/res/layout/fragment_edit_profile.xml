@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white">
+
+    <!--Top app bar-->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/saddlebrown"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/off_white"
+        app:title="@string/edit_profile_title"
+        app:titleTextColor="@color/off_white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/spacing_lg"
+            android:paddingVertical="@dimen/spacing_lg">
+
+            <!--Profile picture with tap to change-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_xl">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/editAvatar"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
+
+                <TextView
+                    android:id="@+id/changePhotoLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:padding="@dimen/spacing_sm"
+                    android:text="@string/edit_change_photo"
+                    android:textColor="@color/saddlebrown"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!--Name-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_full_name_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Email-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_email_hint"
+                android:enabled="false"
+                app:helperText="@string/edit_email_cannot_change"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Institution dropdown-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/institutionInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_institution_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <AutoCompleteTextView
+                    android:id="@+id/institutionInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Course-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/courseInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_course_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_md">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/courseInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapWords"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Student Status dropdown-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/statusInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_student_status_hint"
+                app:boxStrokeColor="@color/saddlebrown"
+                app:hintTextColor="@color/saddlebrown"
+                android:layout_marginBottom="@dimen/spacing_lg">
+                <AutoCompleteTextView
+                    android:id="@+id/statusInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/charcoal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Save button-->
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPrimary"
+                android:text="@string/edit_save_button" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
