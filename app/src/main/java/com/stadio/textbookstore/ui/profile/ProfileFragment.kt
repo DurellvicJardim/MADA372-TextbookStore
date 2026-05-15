@@ -58,6 +58,13 @@ class ProfileFragment : Fragment() {
         binding.institutionValue.text = user.institution
         binding.courseValue.text = user.course
         binding.statusValue.text = user.studentStatus
+
+        //Show profile picture if user has one set otherwise brown background shows
+        if (user.profilePicUri != null) {
+            binding.profilePicture.setImageURI(android.net.Uri.parse(user.profilePicUri))
+        } else {
+            binding.profilePicture.setImageURI(null)
+        }
     }
 
     override fun onDestroyView() {

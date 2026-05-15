@@ -42,6 +42,12 @@ class BookAdapter(
             binding.priceText.text = context.getString(R.string.price_format, book.price)
             binding.conditionText.text = context.getString(R.string.condition_label, book.condition)
 
+            if (book.coverUri != null) {
+                binding.bookCover.setImageURI(android.net.Uri.parse(book.coverUri))
+            } else {
+                binding.bookCover.setImageURI(null)
+            }
+
             binding.root.setOnClickListener {
                 onBookClick(book)
             }

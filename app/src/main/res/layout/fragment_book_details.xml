@@ -31,13 +31,15 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_lg">
 
-            <!--Cover placeholder-->
-            <View
-                android:id="@+id/coverPlaceholder"
+            <!--Book cover-->
+            <ImageView
+                android:id="@+id/bookCoverLarge"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:background="@color/tan"
-                android:layout_marginBottom="@dimen/spacing_lg" />
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:importantForAccessibility="no" />
 
             <!--Title-->
             <TextView
@@ -125,11 +127,14 @@
                 android:gravity="center_vertical"
                 android:layout_marginBottom="@dimen/spacing_xl">
 
-                <!--Avatar placeholder-->
-                <View
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/sellerAvatar"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@color/saddlebrown" />
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
+                    android:importantForAccessibility="no" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

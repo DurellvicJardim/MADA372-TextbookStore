@@ -82,12 +82,16 @@ class BookDetailsFragment : Fragment() {
         binding.priceText.text = getString(R.string.price_format, book.price)
         binding.conditionChip.text = getString(R.string.condition_label, book.condition)
         binding.descriptionText.text = book.description
+        if (book.coverUri != null) {
+            binding.bookCoverLarge.setImageURI(android.net.Uri.parse(book.coverUri))
+        }
     }
 
     private fun populateSeller(seller: User?) {
         if (seller == null) {
             binding.sellerNameText.text = "Unknown seller"
             binding.sellerDetailsText.text = ""
+            binding.sellerAvatar.setImageURI(null)
             return
         }
         binding.sellerNameText.text = seller.fullName
@@ -97,6 +101,11 @@ class BookDetailsFragment : Fragment() {
             seller.course,
             seller.studentStatus
         )
+        if (seller.profilePicUri != null) {
+            binding.sellerAvatar.setImageURI(android.net.Uri.parse(seller.profilePicUri))
+        } else {
+            binding.sellerAvatar.setImageURI(null)
+        }
     }
 
     override fun onDestroyView() {

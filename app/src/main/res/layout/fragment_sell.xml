@@ -37,6 +37,40 @@
             android:paddingHorizontal="@dimen/spacing_lg"
             android:paddingVertical="@dimen/spacing_lg">
 
+            <!--Cover-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_lg">
+
+                <ImageView
+                    android:id="@+id/coverPreview"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:background="@color/tan"
+                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/sell_cover_description" />
+
+                <TextView
+                    android:id="@+id/addCoverLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:padding="@dimen/spacing_sm"
+                    android:text="@string/sell_add_cover"
+                    android:textColor="@color/saddlebrown"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
             <!--Subtitle-->
             <TextView
                 android:layout_width="wrap_content"

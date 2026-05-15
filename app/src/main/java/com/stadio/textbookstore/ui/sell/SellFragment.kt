@@ -13,6 +13,9 @@ import com.stadio.textbookstore.R
 import com.stadio.textbookstore.databinding.FragmentSellBinding
 import com.stadio.textbookstore.viewmodel.BookListViewModel
 import com.stadio.textbookstore.viewmodel.UserViewModel
+import android.net.Uri
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 
 class SellFragment : Fragment() {
 
@@ -21,6 +24,17 @@ class SellFragment : Fragment() {
 
     private val bookViewModel: BookListViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
+
+    private var pendingCoverUri: String? = null
+
+    private val pickCover = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            pendingCoverUri = uri.toString()
+            binding.coverPreview.setImageURI(uri)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +48,13 @@ class SellFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupConditionDropdown()
-
+        val openPicker = View.OnClickListener {
+            pickCover.launch(
+                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+            )
+        }
+        binding.coverPreview.setOnClickListener(openPicker)
+        binding.addCoverLabel.setOnClickListener(openPicker)
         binding.listBookButton.setOnClickListener {
             attemptListBook()
         }
@@ -103,8 +123,9 @@ class SellFragment : Fragment() {
             isbn = isbn,
             price = price,
             condition = condition,
-            description = description.ifEmpty { "No description provided." },
-            sellerId = currentUser.id
+            description = description,
+            sellerId = currentUser.id,
+            coverUri = pendingCoverUri
         )
 
         Toast.makeText(
@@ -121,7 +142,11 @@ class SellFragment : Fragment() {
         binding.conditionInput.text = null
         binding.descriptionInput.text = null
 
-        //Send user to Home to see their listing in the feed
+        //Reset for next listing
+        pendingCoverUri = null
+        binding.coverPreview.setImageURI(null)
+
+        //Send user to listing in the feed
         findNavController().navigate(R.id.homeFragment)
     }
 

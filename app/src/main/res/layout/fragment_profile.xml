@@ -46,11 +46,14 @@
                 android:layout_marginTop="@dimen/spacing_md"
                 android:layout_marginBottom="@dimen/spacing_lg">
 
-                <!--Circular avatar-->
-                <View
+                <!--Profile picture-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profilePicture"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:background="@drawable/avatar_placeholder" />
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
 
                 <TextView
                     android:id="@+id/nameText"

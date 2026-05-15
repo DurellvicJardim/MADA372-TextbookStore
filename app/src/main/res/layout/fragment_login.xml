@@ -14,13 +14,14 @@
         android:paddingHorizontal="@dimen/spacing_lg"
         android:paddingVertical="@dimen/spacing_xl">
 
-        <!-- App logo placeholder -->
-        <View
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+        <!-- App logo -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="@dimen/spacing_xl"
             android:layout_marginBottom="@dimen/spacing_lg"
-            android:background="@color/saddlebrown" />
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name" />
 
         <!--Heading-->
         <TextView

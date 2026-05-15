@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:padding="@dimen/spacing_md"
@@ -11,10 +12,14 @@
     android:focusable="true">
 
     <!--Avatar placeholder-->
-    <View
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/conversationAvatar"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="@color/saddlebrown" />
+        android:background="@drawable/avatar_placeholder"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
+        android:importantForAccessibility="no" />
 
     <!--Name + last message-->
     <LinearLayout

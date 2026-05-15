@@ -1,11 +1,14 @@
 package com.stadio.textbookstore.ui.profile
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,6 +22,17 @@ class EditProfileFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val userViewModel: UserViewModel by activityViewModels()
+
+    private var pendingProfilePicUri: String? = null
+
+    private val pickProfilePic = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            pendingProfilePicUri = uri.toString()
+            binding.editAvatar.setImageURI(uri)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +51,15 @@ class EditProfileFragment : Fragment() {
         binding.topBar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+
+        //Both avatar and label open the picker
+        val openPicker = View.OnClickListener {
+            pickProfilePic.launch(
+                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+            )
+        }
+        binding.editAvatar.setOnClickListener(openPicker)
+        binding.changePhotoLabel.setOnClickListener(openPicker)
 
         binding.saveButton.setOnClickListener {
             attemptSave()
@@ -66,6 +89,12 @@ class EditProfileFragment : Fragment() {
         binding.institutionInput.setText(user.institution, false)
         binding.courseInput.setText(user.course)
         binding.statusInput.setText(user.studentStatus, false)
+
+        //Initialise pending URI with what user has and display it
+        pendingProfilePicUri = user.profilePicUri
+        if (user.profilePicUri != null) {
+            binding.editAvatar.setImageURI(Uri.parse(user.profilePicUri))
+        }
     }
 
     private fun attemptSave() {
@@ -74,13 +103,11 @@ class EditProfileFragment : Fragment() {
         val course = binding.courseInput.text?.toString()?.trim().orEmpty()
         val status = binding.statusInput.text?.toString()?.trim().orEmpty()
 
-        //Clear errors
         binding.nameInputLayout.error = null
         binding.institutionInputLayout.error = null
         binding.courseInputLayout.error = null
         binding.statusInputLayout.error = null
 
-        //Validate
         if (fullName.isEmpty()) {
             binding.nameInputLayout.error = getString(R.string.error_name_required)
             return
@@ -98,13 +125,13 @@ class EditProfileFragment : Fragment() {
             return
         }
 
-        //Build updated user via copy()
         val current = userViewModel.currentUser.value ?: return
         val updated = current.copy(
             fullName = fullName,
             institution = institution,
             course = course,
-            studentStatus = status
+            studentStatus = status,
+            profilePicUri = pendingProfilePicUri
         )
 
         userViewModel.updateProfile(updated)

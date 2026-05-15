@@ -9,5 +9,5 @@ data class Book(
     val condition: String,
     val description: String,
     val sellerId: String,
-    val coverResId: Int? = null
+    val coverUri: String? = null
 )

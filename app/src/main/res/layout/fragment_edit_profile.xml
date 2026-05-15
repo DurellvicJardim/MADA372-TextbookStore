@@ -30,14 +30,39 @@
             android:paddingHorizontal="@dimen/spacing_lg"
             android:paddingVertical="@dimen/spacing_lg">
 
-            <!--Avatar-->
-            <View
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+            <!--Profile picture with tap to change-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_md"
-                android:layout_marginBottom="@dimen/spacing_xl"
-                android:background="@drawable/avatar_placeholder" />
+                android:layout_marginBottom="@dimen/spacing_xl">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/editAvatar"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:background="@drawable/avatar_placeholder"
+                    android:scaleType="centerCrop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
+
+                <TextView
+                    android:id="@+id/changePhotoLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:padding="@dimen/spacing_sm"
+                    android:text="@string/edit_change_photo"
+                    android:textColor="@color/saddlebrown"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
 
             <!--Name-->
             <com.google.android.material.textfield.TextInputLayout

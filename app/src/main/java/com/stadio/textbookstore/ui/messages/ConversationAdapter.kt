@@ -40,6 +40,12 @@ class ConversationAdapter(
             binding.lastMessageText.text = item.lastMessage.content
             binding.timestampText.text = formatTimestamp(item.lastMessage.timestamp)
 
+            if (item.otherUser.profilePicUri != null) {
+                binding.conversationAvatar.setImageURI(android.net.Uri.parse(item.otherUser.profilePicUri))
+            } else {
+                binding.conversationAvatar.setImageURI(null)
+            }
+
             binding.root.setOnClickListener {
                 onConversationClick(item)
             }

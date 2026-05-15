@@ -10,7 +10,7 @@ object BookStoreRepository {
 
     private var currentUser: User? = null
 
-    // ID counters so every new record gets a unique id
+    //ID counters so every new record gets a unique id
     private var userIdCounter = 0
     private var bookIdCounter = 0
     private var messageIdCounter = 0
@@ -85,10 +85,10 @@ object BookStoreRepository {
     fun addBook(
         title: String, author: String, isbn: String, price: Double,
         condition: String, description: String, sellerId: String,
-        coverResId: Int? = null
+        coverUri: String? = null
     ): Book {
         val id = "book_${++bookIdCounter}"
-        val book = Book(id, title, author, isbn, price, condition, description, sellerId, coverResId)
+        val book = Book(id, title, author, isbn, price, condition, description, sellerId, coverUri)
         books.add(book)
         return book
     }
@@ -129,41 +129,56 @@ object BookStoreRepository {
     //SEED DATA
 
     private fun seedSampleData() {
-        val u1 = seedUser("Wikus van der Merwe", "wikus@up.ac.za", "password123",
-            "University of Pretoria", "BCom Accounting", "Current Student")
-        val u2 = seedUser("Thabo Sithole", "thabo@wits.ac.za", "password123",
-            "University of Witwatersrand", "BSc Computer Science", "Current Student")
-        val u3 = seedUser("Aisha Patel", "aisha@sun.ac.za", "password123",
-            "Stellenbosch University", "LLB", "Current Student")
-        val u4 = seedUser("Lerato Sibanyoni", "lerato@uct.ac.za", "password123",
-            "University of Cape Town", "BCom Marketing", "Current Student")
-        val u5 = seedUser("Sipho Ndlovu", "sipho@uj.ac.za", "password123",
-            "University of Johannesburg", "BEng Mechanical", "Current Student")
+        val wikus = seedUser(
+            "Wikus van de Merwe", "wikus@up.co.za", "password123",
+            "University of Pretoria", "BCom Accounting Sciences", "2nd Year"
+        )
+        val palesa = seedUser(
+            "Palesa Mokoena", "palesa@stadio.ac.za", "password123",
+            "STADIO Centurion", "Bachelor of Information Technology", "4th Year"
+        )
+        val durell = seedUser(
+            "Durell Jardim", "24301360@stadio.ac.za", "password123",
+            "STADIO Pretoria", "Bachelor of Information Technology", "3rd Year"
+        )
 
-        addBook("Introduction to Accounting", "Service & Brown", "978-0-123456-12-1",
-            450.00, "Good", "Foundational accounting textbook covering financial statements and bookkeeping principles. Light highlighting on key chapters.", u1.id)
-        addBook("Macroeconomics: A South African Perspective", "K. Botha", "978-0-654321-89-3",
-            520.00, "Good", "Standard first-year macroeconomics textbook. Slight wear on the cover.", u1.id)
-        addBook("Database Systems Concepts", "M. Naidoo", "978-1-234567-45-2",
-            580.00, "Excellent", "Like-new condition. Used for one semester only. No markings.", u2.id)
-        addBook("Principles of Marketing", "K. Pillay", "978-0-987654-32-1",
-            420.00, "Fair", "Some highlighting and notes throughout. Cover has minor wear.", u4.id)
-        addBook("Constitutional Law", "J. van Wyk", "978-0-555444-33-2",
-            690.00, "Good", "Comprehensive coverage of South African constitutional law. Minimal markings.", u3.id)
-        addBook("Engineering Mathematics", "B. Reddy", "978-0-111222-33-4",
-            540.00, "Good", "Includes solved examples. Some pencil notes in the margins.", u5.id)
-        addBook("Organic Chemistry", "S. Ngcobo", "978-1-666777-88-9",
-            720.00, "Fair", "Well-used but functional. Important sections highlighted.", u3.id)
-        addBook("Business Statistics", "L. Khumalo", "978-0-333222-11-0",
-            380.00, "Excellent", "Practically new. Wrapped in plastic since purchase.", u4.id)
-        addBook("Introduction to Programming with Python", "T. Mokoena", "978-1-444555-66-7",
-            475.00, "Good", "Includes companion code samples online. Light usage.", u2.id)
-        addBook("Financial Management", "A. Pillay", "978-0-777888-99-0",
-            615.00, "Good", "Clean copy. Used for FNCE3001.", u1.id)
+        addBook(
+            "WordPress for Beginners 2021: A Visual Step-by-Step Guide to Mastering WordPress",
+            "A. Williams",
+            "979-8584887780",
+            380.00,
+            "Good",
+            "Comprehensive WordPress guide with step-by-step visual instructions.",
+            palesa.id
+        )
+        addBook(
+            "Introduction to Information Systems",
+            "Rainer, R.K. & Prince, B.",
+            "9781119761464",
+            650.00,
+            "Excellent",
+            "Like-new condition. Comprehensive coverage of information systems concepts.",
+            palesa.id
+        )
+        addBook(
+            "Head First Android Development: A Learner's Guide to Building Android Apps with Kotlin",
+            "Griffiths, D. & Griffiths, D.",
+            "978-9355420855",
+            450.00,
+            "Good",
+            "Excellent introduction to Android development with Kotlin. Used for MADA372. Some pencil notes in the margins from study sessions.",
+            durell.id
+        )
 
-        addMessage(u2.id, u1.id, "Hi! Is the Macroeconomics textbook still available?")
-        addMessage(u1.id, u2.id, "Yes it is. Are you on UP campus? Could meet up tomorrow.")
-        addMessage(u3.id, u4.id, "Hi, I'm interested in the Marketing textbook. Will you accept R380?")
+        //Sample conversation between Wikus and Palesa to populate the Messages screen on first launch
+        addMessage(
+            wikus.id, palesa.id,
+            "Hi Palesa! I'm interested in your Information Systems textbook. Is it still available?"
+        )
+        addMessage(
+            palesa.id, wikus.id,
+            "Yes it is! Are you on UP campus? I'm in Centurion but can meet halfway."
+        )
     }
 
     private fun seedUser(

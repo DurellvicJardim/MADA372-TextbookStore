@@ -44,10 +44,11 @@ class BookListViewModel : ViewModel() {
 
     fun addBook(
         title: String, author: String, isbn: String, price: Double,
-        condition: String, description: String, sellerId: String
+        condition: String, description: String, sellerId: String,
+        coverUri: String? = null
     ): Book {
         val book = BookStoreRepository.addBook(
-            title, author, isbn, price, condition, description, sellerId
+            title, author, isbn, price, condition, description, sellerId, coverUri
         )
         refresh()
         return book

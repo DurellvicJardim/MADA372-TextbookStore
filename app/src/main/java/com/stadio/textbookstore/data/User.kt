@@ -7,5 +7,6 @@ data class User(
     val password: String,
     val institution: String,
     val course: String,
-    val studentStatus: String
+    val studentStatus: String,
+    val profilePicUri: String? = null
 )

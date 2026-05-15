@@ -20,7 +20,7 @@
     <string name="register_full_name_hint">Full Name</string>
     <string name="register_institution_hint">Institution</string>
     <string name="register_course_hint">Course</string>
-    <string name="register_student_status_hint">Student Status</string>
+    <string name="register_student_status_hint">Year of Study</string>
     <string name="register_button">Register</string>
     <string name="register_have_account">Already have an account?</string>
     <string name="register_login_link">Log in</string>
@@ -31,10 +31,11 @@
     <string name="error_password_short">Password must be at least 6 characters</string>
     <string name="error_institution_required">Please select your institution</string>
     <string name="error_course_required">Course is required</string>
-    <string name="error_status_required">Please select your student status</string>
+    <string name="error_status_required">Please select your year of study</string>
 
     <!--Dropdown options-->
     <string-array name="institutions">
+        <item>STADIO Centurion</item>
         <item>University of Pretoria</item>
         <item>University of the Witwatersrand</item>
         <item>Stellenbosch University</item>
@@ -48,10 +49,12 @@
     </string-array>
 
     <string-array name="student_statuses">
-        <item>Current Student</item>
-        <item>Postgraduate Student</item>
+        <item>1st Year</item>
+        <item>2nd Year</item>
+        <item>3rd Year</item>
+        <item>4th Year</item>
+        <item>Postgraduate</item>
         <item>Alumni</item>
-        <item>Faculty/Staff</item>
     </string-array>
 
     <!--Forgot Password screen-->
@@ -125,14 +128,14 @@
     <string name="thread_input_hint">Type a message…</string>
     <string name="thread_send">Send</string>
     <string name="thread_empty">No messages yet. Send the first one!</string>
-    <string name="thread_cant_message_self">You can\'t message yourself — you\'re the seller of this book.</string>
+    <string name="thread_cant_message_self">You can\'t message yourself, you\'re the seller of this book.</string>
 
     <!--Profile screen-->
     <string name="profile_screen_title">Profile</string>
     <string name="profile_account_info">Account Information</string>
     <string name="profile_institution_label">Institution</string>
     <string name="profile_course_label">Course</string>
-    <string name="profile_status_label">Student Status</string>
+    <string name="profile_status_label">Year of Study</string>
     <string name="profile_edit_button">Edit Profile</string>
     <string name="profile_logout_button">Logout</string>
     <string name="profile_logout_confirmed">You have been logged out.</string>
@@ -142,4 +145,9 @@
     <string name="edit_email_cannot_change">Email cannot be changed</string>
     <string name="edit_save_button">Save Changes</string>
     <string name="edit_save_success">Profile updated</string>
+
+    <!--Pictures-->
+    <string name="edit_change_photo">Change photo</string>
+    <string name="sell_add_cover">Tap to add book cover</string>
+    <string name="sell_cover_description">Book cover preview</string>
 </resources>
