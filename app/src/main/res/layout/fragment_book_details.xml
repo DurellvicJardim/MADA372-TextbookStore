@@ -18,6 +18,14 @@
         app:title="@string/details_title"
         app:titleTextColor="@color/off_white" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/saddlebrown"
+        android:src="@drawable/pattern_band"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no" />
+
     <!--Scrollable content-->
     <ScrollView
         android:layout_width="match_parent"
@@ -108,8 +116,8 @@
             <!--Divider-->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/tan"
+                android:layout_height="16dp"
+                android:background="@drawable/divider_geometric"
                 android:layout_marginBottom="@dimen/spacing_lg" />
 
             <!--Seller Information-->
