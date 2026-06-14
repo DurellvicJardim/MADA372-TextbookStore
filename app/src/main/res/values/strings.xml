@@ -80,6 +80,12 @@
     <string name="home_screen_title">Browse Books</string>
     <string name="home_search_hint">Search by title, author, or ISBN</string>
     <string name="home_empty">No books match your search.</string>
+    <string name="filter_all">All</string>
+    <string name="filter_excellent">Excellent</string>
+    <string name="filter_good">Good</string>
+    <string name="filter_fair">Fair</string>
+    <string name="filter_poor">Poor</string>
+    <string name="filter_price_low_high">Lowest price</string>
     <string name="condition_label">%1$s condition</string>
     <string name="price_format">R%.2f</string>
 
