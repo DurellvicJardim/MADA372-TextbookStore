@@ -25,6 +25,14 @@
             android:textSize="@dimen/text_title" />
     </FrameLayout>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/saddlebrown"
+        android:src="@drawable/pattern_band"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -76,8 +84,8 @@
             <!--Divider-->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/tan" />
+                android:layout_height="16dp"
+                android:background="@drawable/divider_geometric" />
 
             <!--Account Info section-->
             <TextView
@@ -157,8 +165,8 @@
             <!--Divider-->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/tan"
+                android:layout_height="16dp"
+                android:background="@drawable/divider_geometric"
                 android:layout_marginBottom="@dimen/spacing_lg" />
 
             <!--Edit Profile-->

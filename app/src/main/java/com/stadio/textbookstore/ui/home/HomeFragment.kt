@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
         setupRecyclerView()
         observeBooks()
         setupSearch()
+        setupFilters()
     }
 
     private fun setupRecyclerView() {
@@ -57,6 +58,23 @@ class HomeFragment : Fragment() {
     private fun setupSearch() {
         binding.searchInput.addTextChangedListener { editable ->
             bookViewModel.search(editable?.toString().orEmpty())
+        }
+    }
+
+    private fun setupFilters() {
+        binding.conditionChipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            val condition = when (checkedIds.firstOrNull()) {
+                R.id.chipExcellent -> "Excellent"
+                R.id.chipGood -> "Good"
+                R.id.chipFair -> "Fair"
+                R.id.chipPoor -> "Poor"
+                else -> null
+            }
+            bookViewModel.setConditionFilter(condition)
+        }
+
+        binding.chipPriceSort.setOnCheckedChangeListener { _, isChecked ->
+            bookViewModel.setPriceSort(isChecked)
         }
     }
 

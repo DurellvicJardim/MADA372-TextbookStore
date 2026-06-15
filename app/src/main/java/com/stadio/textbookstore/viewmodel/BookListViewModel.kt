@@ -17,6 +17,12 @@ class BookListViewModel : ViewModel() {
     private val _searchQuery = MutableLiveData("")
     val searchQuery: LiveData<String> = _searchQuery
 
+    //condition filter
+    private var conditionFilter: String? = null
+
+    //sort the list by price from lowest to highest
+    private var sortByPriceAsc: Boolean = false
+
     private val _selectedBook = MutableLiveData<Book?>()
     val selectedBook: LiveData<Book?> = _selectedBook
 
@@ -27,11 +33,36 @@ class BookListViewModel : ViewModel() {
 
     fun search(query: String) {
         _searchQuery.value = query
-        _books.value = BookStoreRepository.searchBooks(query)
+        applyFilters()
     }
 
     fun refresh() {
-        _books.value = BookStoreRepository.searchBooks(_searchQuery.value ?: "")
+        applyFilters()
+    }
+
+    //when the user taps a condition chip
+    fun setConditionFilter(condition: String?) {
+        conditionFilter = condition
+        applyFilters()
+    }
+
+    //when user toggles price sort chip
+    fun setPriceSort(ascending: Boolean) {
+        sortByPriceAsc = ascending
+        applyFilters()
+    }
+
+    //search text, condition filter and price sort combined into one function
+    private fun applyFilters() {
+        var result = BookStoreRepository.searchBooks(_searchQuery.value ?: "")
+        val condition = conditionFilter
+        if (condition != null) {
+            result = result.filter { it.condition.equals(condition, ignoreCase = true) }
+        }
+        if (sortByPriceAsc) {
+            result = result.sortedBy { it.price }
+        }
+        _books.value = result
     }
 
     fun selectBook(bookId: String) {
